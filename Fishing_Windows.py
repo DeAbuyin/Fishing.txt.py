@@ -11,7 +11,7 @@ czas = 10
 widgets = [
     progressbar.Bar(), ]
 
-os.system("clear")
+os.system("cls")
 
 
 def rypka(cena, nazwa, czas, waga):
@@ -20,7 +20,7 @@ def rypka(cena, nazwa, czas, waga):
     print("\33[1;36;40m")
     for i in progressbar.progressbar(range(czas), redirect_stdout=True, widgets=widgets):
         time.sleep(0.1)
-    os.system("clear")
+    os.system("cls")
     print(
         f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}          Poziom przynęty {lvl+1}\33[1;37;40m")
     print("\33[1;37;40m")
@@ -55,7 +55,7 @@ def main(arg):
         czas = save[1]
         lvl = save[2]
     except:
-        os.system("clear")
+        os.system("cls")
     portfel = float(portfel)
     czas = int(czas)
     lvl = int(lvl)
@@ -73,7 +73,7 @@ Exit - aby wyjść")
 
         c = input("")
         if c == 'e':
-            os.system("clear")
+            os.system("cls")
             rybka = random.randint(0, 100)
             waga = random.randint(1, 10)
 
@@ -184,7 +184,7 @@ Exit - aby wyjść")
 
         elif c == 'c':
             portfel = portfel + 100000
-            os.system("clear")
+            os.system("cls")
         elif c == "exit":
             break
 
@@ -203,7 +203,7 @@ Exit - aby wyjść")
                     d = k
                 if lvl == 9:
                     L = k
-                os.system("clear")
+                os.system("cls")
                 print(
                     f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}\33[1;37;40m")
                 print("\33[1;34;40m-=-=-=-=-=SKLEP=-=-=-=-=-\33[1;37;40m")
@@ -219,12 +219,12 @@ Exit - aby wyjść")
                     print("Dzięki")
 
                 elif sklep == "1" and portfel < cena_u:
-                    os.system("clear")
+                    os.system("cls")
                     print("Jesteś biedakiem!")
                     input()
 
                 elif sklep == "4" or sklep == "e":
-                    os.system("clear")
+                    os.system("cls")
                     print(
                         f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}\33[1;37;40m")
                     break
@@ -239,7 +239,7 @@ Exit - aby wyjść")
                     print("Dzięki!")
 
         else:
-            os.system("clear")
+            os.system("cls")
             print(
                 f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}\33[1;37;40m")
             print(f"Proszę wybrać poprawną opcję!")
