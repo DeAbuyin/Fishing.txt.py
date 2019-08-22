@@ -250,8 +250,8 @@ Exit - aby wyjść")
 
             cena = waga*mnożnik
             cena = float("%.2f" % round(cena, 2))
-            portfel = float("%.2f" % round(portfel, 2))
             rypka(cena, nazwa, czas, waga)
+            portfel = float("%.2f" % round(portfel, 2))
 
         elif c == 'c':
             portfel = portfel + 100000
