@@ -68,7 +68,6 @@ def main(arg):
         f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
 
     while True:
-        #(f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
         portfel = float(portfel)
         czas = int(czas)
         lvl = int(lvl)
