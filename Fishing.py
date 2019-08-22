@@ -45,7 +45,7 @@ def rypka(cena, nazwa, czas, waga):
     (portfel) = (portfel) + cena
     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
         print(
-            f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+            f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
         print("\33[1;37;40m")
         print(f"Congratulations, You caught \33[1;35;40m{nazwa}")
         print(
@@ -65,10 +65,6 @@ def main(arg):
     czas = 100
     lvl = 0
     mnożnik = 10
-    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
-        z = str("2. Wisely 10 000[O]")
-    else:
-        z = str("2. Mądrze 10 000[C]")
     A = [[20, 17, 14, 11, 10, 9, 8, 7, 4, 1],  # Płotka
          [35, 31, 27, 23, 20, 17, 14, 11, 7, 3],  # Okoń
          [50, 45, 40, 35, 30, 25, 20, 15, 10, 5],  # Leszcz
@@ -98,12 +94,16 @@ def main(arg):
     mnożnik = int(mnożnik)
     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
         print(
-            f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+            f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
     else:
         print(
             f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
 
     while True:
+        sve = (f"{portfel};{czas};{lvl};{mnożnik};{lang}")
+        file = open("Save.txt", "w")
+        file.write(sve)
+        file.close()
         portfel = float(portfel)
         czas = int(czas)
         lvl = int(lvl)
@@ -267,10 +267,14 @@ Exit - aby wyjść")
                 cena_u = 10000/czas
                 cena_u = int(cena_u)
                 if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                    z = str("2. Wisely 10 000[O]")
+                else:
+                    z = str("2. Mądrze 10 000[C]")
+                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                     q = str("1. Better rod")
-                    d = (f"{q} {cena_u}[C]")
+                    d = (f"{q} {cena_u}[O]")
                     l = str("3. Better bait")
-                    L = (f"{l} {cena_l}[C]")
+                    L = (f"{l} {cena_l}[O]")
                     k = str("Sold")
                 else:
                     q = str("1. Szybsze łowienie")
@@ -286,7 +290,7 @@ Exit - aby wyjść")
                 os.system("clear")
                 if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                     print(
-                        f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+                        f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
                     print("\33[1;34;40m-=-=-=-=-=SHOP=-=-=-=-=-\33[1;37;40m")
                 else:
                     print(
@@ -305,41 +309,57 @@ Exit - aby wyjść")
                 else:
                     sklep = input("Wybierz mądrze: ")
 
-                if sklep == "1" and portfel >= cena_u and d != k and czas > 1:
-                    portfel = portfel - cena_u
-                    czas = czas - 5
-
-                elif sklep == "1" or sklep == "2" or sklep == "3" or sklep == "4" and portfel < cena_u:
-                    os.system("clear")
-                    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
-                        print("You are too poor!")
+                if sklep == "1" and d != k and czas > 1:
+                    if portfel < cena_u:
+                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                            print("You are too poor!")
+                        else:
+                            print("Jesteś biedakiem!")
                     else:
-                        print("Jesteś biedakiem!")
-                    input()
+                        portfel = portfel - cena_u
+                        czas = czas - 5
 
                 elif sklep == "Exit" or sklep == "exit" or sklep == "e":
                     os.system("clear")
                     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                         print(
-                            f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+                            f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
                     else:
                         print(
                             f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
                     break
 
-                elif sklep == "2" and portfel >= 10000 and z != "O ty śmieszku" and z != "Oh, You funny Guy":
-                    portfel = portfel - 10000
+                elif sklep == "2" and z != "O ty śmieszku" and z != "Oh, You funny Guy":
+                    if portfel < 10000:
+                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                            print("You are too poor!")
+                        else:
+                            print("Jesteś biedakiem!")
+                    else:
+                        portfel = portfel - 10000
                     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                         z = "Oh, You funny Guy"
                     else:
                         z = "O ty śmieszku"
-                elif sklep == "4" and portfel >= 10*mnożnik:
-                    mnożnik = mnożnik + 1
-                    portfel = portfel - (mnożnik*10)
+                elif sklep == "4":
+                    if portfel < 10*mnożnik:
+                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                            print("You are too poor!")
+                        else:
+                            print("Jesteś biedakiem!")
+                    else:
+                        mnożnik = mnożnik + 1
+                        portfel = portfel - (mnożnik*10)
 
-                elif sklep == "3" and portfel >= cena_l and L != k:
-                    lvl += 1
-                    portfel = portfel - cena_l
+                elif sklep == "3" and L != k:
+                    if portfel < cena_l:
+                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                            print("You are too poor!")
+                        else:
+                            print("Jesteś biedakiem!")
+                    else:
+                        lvl += 1
+                        portfel = portfel - cena_l
 
                 else:
                     os.system("clear")
@@ -360,7 +380,7 @@ Exit - aby wyjść")
             os.system("clear")
             if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                 print(
-                    f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+                    f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
             else:
                 print(
                     f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
@@ -372,7 +392,7 @@ Exit - aby wyjść")
             os.system("clear")
             if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                 print(
-                    f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+                    f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
             else:
                 print(
                     f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
@@ -380,7 +400,7 @@ Exit - aby wyjść")
             os.system("clear")
             if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                 print(
-                    f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        PricePrice for kg: {mnożnik}[O]\33[1;37;40m")
+                    f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
                 print("Please, choose correct option!")
                 input()
             else:
@@ -389,10 +409,6 @@ Exit - aby wyjść")
                 print(f"Proszę wybrać poprawną opcję!")
                 input()
 
-        sve = (f"{portfel};{czas};{lvl};{mnożnik};{lang}")
-        file = open("Save.txt", "w")
-        file.write(sve)
-        file.close()
     return 0
 
 
