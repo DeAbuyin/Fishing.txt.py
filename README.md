@@ -1,6 +1,6 @@
 # Fishing.txt.py
 (Not) Very Advanced console based fishing game
-For now, game is available only in Polish, I'll add English language soon
+Game is available in English and Polish language!
 First of all, you need to install Python 3.7 or higher, you can do this on this page: https://www.python.org/downloads/ 
   
 ```WINDOWS```   
