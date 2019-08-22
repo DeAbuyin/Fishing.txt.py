@@ -7,6 +7,7 @@ print("\33[1;37;40m")
 portfel = 0
 lvl = 0
 czas = 10
+mnożnik = 10
 
 widgets = [
     progressbar.Bar(), ]
@@ -16,24 +17,26 @@ os.system("cls")
 
 def rypka(cena, nazwa, czas, waga):
     global portfel
+    global mnożnik
     print("Łowię Rybkę!")
     print("\33[1;36;40m")
     for i in progressbar.progressbar(range(czas), redirect_stdout=True, widgets=widgets):
         time.sleep(0.1)
     os.system("cls")
+    (portfel) = (portfel) + cena
     print(
-        f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}          Poziom przynęty {lvl+1}\33[1;37;40m")
+        f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
     print("\33[1;37;40m")
     print(f"Gartulacje, złowiłeś \33[1;35;40m{nazwa}")
     print(
         f"\33[1;37;40mTa ryba waży \33[1;35;40m{waga} kg\33[1;37;40m, oraz jest warta \33[1;35;40m{cena} Cebul\33[1;37;40m \n")
-    (portfel) = (portfel) + cena
 
 
 def main(arg):
     global portfel
     czas = 100
     lvl = 0
+    mnożnik = 10
     z = str("2. Mądrze 10 000[C]")
     A = [[20, 17, 14, 11, 10, 9, 8, 7, 4, 1],  # Płotka
          [35, 31, 27, 23, 20, 17, 14, 11, 7, 3],  # Okoń
@@ -54,21 +57,26 @@ def main(arg):
         portfel = save[0]
         czas = save[1]
         lvl = save[2]
+        mnożnik = save[3]
     except:
         os.system("cls")
     portfel = float(portfel)
     czas = int(czas)
     lvl = int(lvl)
+    mnożnik = int(mnożnik)
     print(
-        f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}          Poziom przynęty {lvl+1}\33[1;37;40m")
+        f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
 
     while True:
+        #(f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
         portfel = float(portfel)
         czas = int(czas)
         lvl = int(lvl)
+        mnożnik = int(mnożnik)
         print(f"\33[1;34;40m=-=-=-=-=-MENU=-=-=-=-=-\33[1;37;40m\n\
 E - aby zacząć łowić \n\
 S - aby otworzyć sklep \n\
+cls - aby usunąć zapis \n\
 Exit - aby wyjść")
 
         c = input("")
@@ -177,14 +185,16 @@ Exit - aby wyjść")
 
                 nazwa = "Szczupaka"
 
-            cena = waga*12
+            cena = waga*mnożnik
             cena = float("%.2f" % round(cena, 2))
-            rypka(cena, nazwa, czas, waga)
             portfel = float("%.2f" % round(portfel, 2))
+            rypka(cena, nazwa, czas, waga)
 
         elif c == 'c':
             portfel = portfel + 100000
             os.system("cls")
+            print(
+                f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
         elif c == "exit":
             break
 
@@ -205,47 +215,60 @@ Exit - aby wyjść")
                     L = k
                 os.system("cls")
                 print(
-                    f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}\33[1;37;40m")
+                    f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: : {mnożnik}\33[1;37;40m")
                 print("\33[1;34;40m-=-=-=-=-=SKLEP=-=-=-=-=-\33[1;37;40m")
                 print(d)        # Szybsze łowienie
                 print(z)        # Mądrze
                 print(f"{L}")   # Przynęta
-                print("4. Exit")
-                sklep = input("Wybierz mądrze ")
+                print(f"4. Lepsze ceny ryb")
+                print("Exit")
+                sklep = input("Wybierz mądrze: ")
 
                 if sklep == "1" and portfel >= cena_u and d != k and czas > 1:
                     portfel = portfel - cena_u
                     czas = czas - 5
                     print("Dzięki")
 
-                elif sklep == "1" and portfel < cena_u:
+                elif sklep == "1" or sklep == "2" or sklep == "3" or sklep == "4" and portfel < cena_u:
                     os.system("cls")
                     print("Jesteś biedakiem!")
                     input()
 
-                elif sklep == "4" or sklep == "e":
+                elif sklep == "Exit" or sklep == "exit" or sklep == "e":
                     os.system("cls")
                     print(
-                        f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}\33[1;37;40m")
+                        f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
                     break
 
                 elif sklep == "2" and portfel >= 10000 and z != "O ty śmieszku":
                     portfel = portfel - 10000
                     z = "O ty śmieszku"
+                elif sklep == "4" and portfel >= 10*mnożnik:
+                    mnożnik = mnożnik + 2
+                    portfel = portfel - (mnożnik*10)
+                    print("Dzięki!")
 
                 elif sklep == "3" and portfel >= cena_l and L != k:
                     lvl += 1
                     portfel = portfel - cena_l
                     print("Dzięki!")
                 portfel = float("%.2f" % round(portfel, 2))
+        elif c == "cls" or "cls":
+            portfel = 0
+            czas = 100
+            mnożnik = 10
+            lvl = 0
+            os.system("cls")
+            print(
+                f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
 
         else:
             os.system("cls")
             print(
-                f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}\33[1;37;40m")
+                f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}\33[1;37;40m")
             print(f"Proszę wybrać poprawną opcję!")
 
-        sve = (f"{portfel};{czas};{lvl}")
+        sve = (f"{portfel};{czas};{lvl};{mnożnik}")
         file = open("Save.txt", "w")
         file.write(sve)
         file.close()
