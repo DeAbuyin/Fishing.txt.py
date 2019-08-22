@@ -237,6 +237,7 @@ Exit - aby wyjść")
                     lvl += 1
                     portfel = portfel - cena_l
                     print("Dzięki!")
+                portfel = float("%.2f" % round(portfel, 2))
 
         else:
             os.system("cls")

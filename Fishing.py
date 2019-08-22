@@ -179,8 +179,8 @@ Exit - aby wyjść")
 
             cena = waga*12
             cena = float("%.2f" % round(cena, 2))
-            rypka(cena, nazwa, czas, waga)
             portfel = float("%.2f" % round(portfel, 2))
+            rypka(cena, nazwa, czas, waga)
 
         elif c == 'c':
             portfel = portfel + 100000
@@ -237,6 +237,7 @@ Exit - aby wyjść")
                     lvl += 1
                     portfel = portfel - cena_l
                     print("Dzięki!")
+                portfel = float("%.2f" % round(portfel, 2))
 
         else:
             os.system("clear")
