@@ -57,16 +57,22 @@ def rypka(cena, nazwa, czas, waga):
         print(
             f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
         print("\33[1;37;40m")
-        print(f"Congratulations, You caught \33[1;35;40m{nazwa}")
-        print(
-            f"\33[1;37;40mThis fish weights \33[1;35;40m{waga} kg\33[1;37;40m, and it's worth \33[1;35;40m{cena} Onions\33[1;37;40m \n")
+        if nazwa == "a Shoe":
+            print(f"CONGRATULATIONS!!!!!! You couth {nazwa} whitch is worth: {cena}[O]")
+        else:
+            print(f"Congratulations, You caught \33[1;35;40m{nazwa}")
+            print(
+                f"\33[1;37;40mThis fish weights \33[1;35;40m{waga} kg\33[1;37;40m, and it's worth \33[1;35;40m{cena} Onions\33[1;37;40m \n")
     else:
         print(
             f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
         print("\33[1;37;40m")
-        print(f"Gartulacje, złowiłeś \33[1;35;40m{nazwa}")
-        print(
-            f"\33[1;37;40mTa ryba waży \33[1;35;40m{waga} kg\33[1;37;40m, oraz jest warta \33[1;35;40m{cena} Cebul\33[1;37;40m \n")
+        if nazwa == "But":
+            print(f"GRATULACJE!!!!!!! złowiłeś {nazwa} który jest warty: {cena}[C]")
+        else:
+            print(f"Gartulacje, złowiłeś \33[1;35;40m{nazwa}")
+            print(
+                f"\33[1;37;40mTa ryba waży \33[1;35;40m{waga} kg\33[1;37;40m, oraz jest warta \33[1;35;40m{cena} Cebul\33[1;37;40m \n")
 
 
 def main(arg):
@@ -137,7 +143,7 @@ Exit - aby wyjść")
         c = c.lower()
         if c == 'e':
             clear_scr()
-            rybka = random.randint(0, 100)
+            rybka = random.randint(0, 110)
             waga = random.randint(1, 10)
 
             if rybka <= A[0][lvl]:
@@ -247,7 +253,7 @@ Exit - aby wyjść")
                 else:
                     nazwa = "Sandacza"
 
-            else:
+            elif rybka >A[8][lvl] and rybka <= 100:
                 if waga <= 6:
                     waga = random.randint(1, 3)
                 elif waga > 6 and waga <= 9:
@@ -258,6 +264,12 @@ Exit - aby wyjść")
                     nazwa = "a Pike"
                 else:
                     nazwa = "Szczupaka"
+            else:
+                waga = 0
+                if lang == "1" or lang == "en" or lang == "english":
+                    nazwa = "a Shoe"
+                else:
+                    nazwa = "But"
 
             cena = waga*mnożnik
             cena = float("%.2f" % round(cena, 2))
