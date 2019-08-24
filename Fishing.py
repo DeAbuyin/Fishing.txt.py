@@ -2,6 +2,7 @@ import os
 import random
 import time
 import progressbar
+import platform
 # clear musi być na samym dole BO TAK!
 print("\33[1;37;40m")
 portfel = 0
@@ -9,11 +10,17 @@ lvl = 0
 czas = 10
 mnożnik = 10
 
-
+def clear_scr():
+    if platform.system() == "Linux" or platform.system() == "Darwin":
+        os.system("clear")
+    elif platform.system() == "Windows":
+        os.system("cls")
+    else:
+        print("NO!")
 widgets = [
     progressbar.Bar(), ]
 
-os.system("clear")
+clear_scr()
 try:
     file = open("Save.txt", "r")
     svetxt = file.readlines(1)
@@ -26,9 +33,9 @@ except:
 
 if lang == "0":
     lang = input(f"Wybierz Język/Select language: \n 1.English \n 2.Polski \n")
-    os.system("clear")
+    clear_scr()
 else:
-    os.system("clear")
+    clear_scr()
 
 
 def rypka(cena, nazwa, czas, waga):
@@ -41,7 +48,7 @@ def rypka(cena, nazwa, czas, waga):
     print("\33[1;36;40m")
     for i in progressbar.progressbar(range(czas), redirect_stdout=True, widgets=widgets):
         time.sleep(0.1)
-    os.system("clear")
+    clear_scr()
     (portfel) = (portfel) + cena
     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
         print(
@@ -87,7 +94,7 @@ def main(arg):
         mnożnik = save[3]
         lang = save[4]
     except:
-        os.system("clear")
+        clear_scr()
     portfel = float(portfel)
     czas = int(czas)
     lvl = int(lvl)
@@ -125,7 +132,7 @@ Exit - aby wyjść")
 
         c = input("")
         if c == 'e':
-            os.system("clear")
+            clear_scr()
             rybka = random.randint(0, 100)
             waga = random.randint(1, 10)
 
@@ -255,7 +262,7 @@ Exit - aby wyjść")
 
         elif c == 'c':
             portfel = portfel + 100000
-            os.system("clear")
+            clear_scr()
             print(
                 f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
         elif c == "exit":
@@ -287,7 +294,7 @@ Exit - aby wyjść")
                     d = k
                 if lvl == 9:
                     L = k
-                os.system("clear")
+                clear_scr()
                 if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                     print(
                         f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
@@ -320,7 +327,7 @@ Exit - aby wyjść")
                         czas = czas - 5
 
                 elif sklep == "Exit" or sklep == "exit" or sklep == "e":
-                    os.system("clear")
+                    clear_scr()
                     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                         print(
                             f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
@@ -362,7 +369,7 @@ Exit - aby wyjść")
                         portfel = portfel - cena_l
 
                 else:
-                    os.system("clear")
+                    clear_scr()
                     if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                         print("Please, choose correct option!")
                         input()
@@ -372,12 +379,12 @@ Exit - aby wyjść")
                 portfel = float("%.2f" % round(portfel, 2))
 
         elif c == 'l':
-            os.system("clear")
+            clear_scr()
             print(f"Wybierz Język/Select language: \n\
 1.English \n\
 2.Polski")
             lang = input()
-            os.system("clear")
+            clear_scr()
             if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                 print(
                     f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
@@ -389,7 +396,7 @@ Exit - aby wyjść")
             czas = 100
             mnożnik = 10
             lvl = 0
-            os.system("clear")
+            clear_scr()
             if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                 print(
                     f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
@@ -397,7 +404,7 @@ Exit - aby wyjść")
                 print(
                     f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
         else:
-            os.system("clear")
+            clear_scr()
             if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
                 print(
                     f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
