@@ -9,7 +9,7 @@ You should install progress bar by paste this comand in cmd as admin: `pip insta
 ```GNU\Linux```  
 You should install progress bar by paste this comand in terminal `pip3 install progressbar2`
   
-```OS X\MacOS```
+```OS X\MacOS```  
 You should install progress bar by paste this comand in terminal `pip3 install progressbar2`
   
 and that basicly it, now you can enjoy my awesome, advanced and another "A" Application  
