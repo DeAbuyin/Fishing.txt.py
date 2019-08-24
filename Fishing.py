@@ -10,6 +10,7 @@ lvl = 0
 czas = 10
 mnożnik = 10
 
+
 def clear_scr():
     if platform.system() == "Linux" or platform.system() == "Darwin":
         os.system("clear")
@@ -17,6 +18,8 @@ def clear_scr():
         os.system("cls")
     else:
         print("NO!")
+
+
 widgets = [
     progressbar.Bar(), ]
 
@@ -36,12 +39,12 @@ if lang == "0":
     clear_scr()
 else:
     clear_scr()
-
+lang = lang.lower()
 
 def rypka(cena, nazwa, czas, waga):
     global portfel
     global mnożnik
-    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+    if lang == "1" or lang == "en" or lang == "english":
         print("Fishing!")
     else:
         print("Łowię Rybkę!")
@@ -50,7 +53,7 @@ def rypka(cena, nazwa, czas, waga):
         time.sleep(0.1)
     clear_scr()
     (portfel) = (portfel) + cena
-    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+    if lang == "1" or lang == "en" or lang == "english":
         print(
             f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
         print("\33[1;37;40m")
@@ -99,7 +102,7 @@ def main(arg):
     czas = int(czas)
     lvl = int(lvl)
     mnożnik = int(mnożnik)
-    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+    if lang == "1" or lang == "en" or lang == "english":
         print(
             f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
     else:
@@ -115,7 +118,7 @@ def main(arg):
         czas = int(czas)
         lvl = int(lvl)
         mnożnik = int(mnożnik)
-        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+        if lang == "1" or lang == "en" or lang == "english":
             print(f"\33[1;34;40m-=-=-=-=-=MENU=-=-=-=-=-\33[1;37;40m\n\
 E - to start fishing \n\
 S - to open shop \n\
@@ -131,6 +134,7 @@ Clear - aby usunąć zapis \n\
 Exit - aby wyjść")
 
         c = input("")
+        c = c.lower()
         if c == 'e':
             clear_scr()
             rybka = random.randint(0, 100)
@@ -143,7 +147,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 5)/10
                 else:
                     waga = random.randint(5, 10)/10
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Roach"
                 else:
                     nazwa = "Płotkę"
@@ -155,7 +159,7 @@ Exit - aby wyjść")
                     waga = random.randint(5, 10)/10
                 else:
                     waga = random.randint(10, 20)/10
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Bass"
                 else:
                     nazwa = "Okonia"
@@ -167,7 +171,7 @@ Exit - aby wyjść")
                     waga = random.randint(1, 3)
                 else:
                     waga = random.randint(3, 5)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Bream"
                 else:
                     nazwa = "Leszcza"
@@ -179,7 +183,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 4)
                 else:
                     waga = random.randint(4, 6)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Trout"
                 else:
                     nazwa = "Pstrąga"
@@ -191,7 +195,7 @@ Exit - aby wyjść")
                     waga = random.randint(1, 3)
                 else:
                     waga = random.randint(3, 6)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Burbot"
                 else:
                     nazwa = "Miętusa"
@@ -203,7 +207,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 5)
                 else:
                     waga = random.randint(5, 7)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "an Asp"
                 else:
                     nazwa = "Bolenia"
@@ -215,7 +219,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 5)
                 else:
                     waga = random.randint(5, 10)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Salmon"
                     nazwa = "Łososia"
 
@@ -226,7 +230,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 4)
                 else:
                     waga = random.randint(5, 10)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Bull-trout"
                 else:
                     nazwa = "Troć"
@@ -238,7 +242,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 6)
                 else:
                     waga = random.randint(5, 11)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Zander"
                 else:
                     nazwa = "Sandacza"
@@ -250,7 +254,7 @@ Exit - aby wyjść")
                     waga = random.randint(2, 10)
                 else:
                     waga = random.randint(5, 16)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     nazwa = "a Pike"
                 else:
                     nazwa = "Szczupaka"
@@ -273,11 +277,11 @@ Exit - aby wyjść")
                 cena_l = 200+100*(lvl)
                 cena_u = 10000/czas
                 cena_u = int(cena_u)
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     z = str("2. Wisely 10 000[O]")
                 else:
                     z = str("2. Mądrze 10 000[C]")
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     q = str("1. Better rod")
                     d = (f"{q} {cena_u}[O]")
                     l = str("3. Better bait")
@@ -295,7 +299,7 @@ Exit - aby wyjść")
                 if lvl == 9:
                     L = k
                 clear_scr()
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     print(
                         f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
                     print("\33[1;34;40m-=-=-=-=-=SHOP=-=-=-=-=-\33[1;37;40m")
@@ -306,19 +310,19 @@ Exit - aby wyjść")
                 print(d)        # Szybsze łowienie
                 print(z)        # Mądrze
                 print(f"{L}")   # Przynęta
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     print(f"4. Better prices {10*mnożnik}[O]")
                 else:
                     print(f"4. Lepsze ceny ryb {10*mnożnik}[C]")
                 print("Exit")
-                if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                if lang == "1" or lang == "en" or lang == "english":
                     sklep = input("Choose wisely: ")
                 else:
                     sklep = input("Wybierz mądrze: ")
 
                 if sklep == "1" and d != k and czas > 1:
                     if portfel < cena_u:
-                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                        if lang == "1" or lang == "en" or lang == "english":
                             print("You are too poor!")
                         else:
                             print("Jesteś biedakiem!")
@@ -328,7 +332,7 @@ Exit - aby wyjść")
 
                 elif sklep == "Exit" or sklep == "exit" or sklep == "e":
                     clear_scr()
-                    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                    if lang == "1" or lang == "en" or lang == "english":
                         print(
                             f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
                     else:
@@ -338,19 +342,19 @@ Exit - aby wyjść")
 
                 elif sklep == "2" and z != "O ty śmieszku" and z != "Oh, You funny Guy":
                     if portfel < 10000:
-                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                        if lang == "1" or lang == "en" or lang == "english":
                             print("You are too poor!")
                         else:
                             print("Jesteś biedakiem!")
                     else:
                         portfel = portfel - 10000
-                    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                    if lang == "1" or lang == "en" or lang == "english":
                         z = "Oh, You funny Guy"
                     else:
                         z = "O ty śmieszku"
                 elif sklep == "4":
                     if portfel < 10*mnożnik:
-                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                        if lang == "1" or lang == "en" or lang == "english":
                             print("You are too poor!")
                         else:
                             print("Jesteś biedakiem!")
@@ -360,7 +364,7 @@ Exit - aby wyjść")
 
                 elif sklep == "3" and L != k:
                     if portfel < cena_l:
-                        if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                        if lang == "1" or lang == "en" or lang == "english":
                             print("You are too poor!")
                         else:
                             print("Jesteś biedakiem!")
@@ -370,7 +374,7 @@ Exit - aby wyjść")
 
                 else:
                     clear_scr()
-                    if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+                    if lang == "1" or lang == "en" or lang == "english":
                         print("Please, choose correct option!")
                         input()
                     else:
@@ -385,19 +389,19 @@ Exit - aby wyjść")
 2.Polski")
             lang = input()
             clear_scr()
-            if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+            if lang == "1" or lang == "en" or lang == "english":
                 print(
                     f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
             else:
                 print(
                     f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
-        elif c == 'clear' or 'Clear':
+        elif c == 'clear' or c == 'Clear':
             portfel = 0.0
             czas = 100
             mnożnik = 10
             lvl = 0
             clear_scr()
-            if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+            if lang == "1" or lang == "en" or lang == "english":
                 print(
                     f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
             else:
@@ -405,7 +409,7 @@ Exit - aby wyjść")
                     f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
         else:
             clear_scr()
-            if lang == "1" or lang == "en" or lang == "En" or lang == "english" or lang == "English":
+            if lang == "1" or lang == "en" or lang == "english":
                 print(
                     f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
                 print("Please, choose correct option!")
