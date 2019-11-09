@@ -4,6 +4,7 @@ import time
 import progressbar
 import platform
 # clear musi być na samym dole BO TAK!
+#Rybki xD
 print("\33[1;37;40m")
 portfel = 0
 lvl = 0
@@ -41,6 +42,7 @@ else:
     clear_scr()
 lang = lang.lower()
 
+
 def rypka(cena, nazwa, czas, waga):
     global portfel
     global mnożnik
@@ -58,7 +60,8 @@ def rypka(cena, nazwa, czas, waga):
             f"\33[1;33;40mWallet {portfel}[O]           Speed {czas/10}         Bait Level {lvl+1}        Price for kg: {mnożnik}[O]\33[1;37;40m")
         print("\33[1;37;40m")
         if nazwa == "a Shoe":
-            print(f"CONGRATULATIONS!!!!!! You couth {nazwa} whitch is worth: {cena}[O]")
+            print(
+                f"CONGRATULATIONS!!!!!! You couth {nazwa} whitch is worth: {cena}[O]")
         else:
             print(f"Congratulations, You caught \33[1;35;40m{nazwa}")
             print(
@@ -68,7 +71,8 @@ def rypka(cena, nazwa, czas, waga):
             f"\33[1;33;40mPortfel {portfel}[C]           Prędkość {czas/10}         Poziom przynęty {lvl+1}        Cena za kg: {mnożnik}[C]\33[1;37;40m")
         print("\33[1;37;40m")
         if nazwa == "But":
-            print(f"GRATULACJE!!!!!!! złowiłeś {nazwa} który jest warty: {cena}[C]")
+            print(
+                f"GRATULACJE!!!!!!! złowiłeś {nazwa} który jest warty: {cena}[C]")
         else:
             print(f"Gartulacje, złowiłeś \33[1;35;40m{nazwa}")
             print(
@@ -79,6 +83,7 @@ def main(arg):
     global portfel
     global lang
     czas = 100
+    madrosc = 0
     lvl = 0
     mnożnik = 10
     A = [[20, 17, 14, 11, 10, 9, 8, 7, 4, 1],  # Płotka
@@ -253,7 +258,7 @@ Exit - aby wyjść")
                 else:
                     nazwa = "Sandacza"
 
-            elif rybka >A[8][lvl] and rybka <= 100:
+            elif rybka > A[8][lvl] and rybka <= 100:
                 if waga <= 6:
                     waga = random.randint(1, 3)
                 elif waga > 6 and waga <= 9:
@@ -289,22 +294,26 @@ Exit - aby wyjść")
                 cena_l = 200+100*(lvl)
                 cena_u = 10000/czas
                 cena_u = int(cena_u)
-                if lang == "1" or lang == "en" or lang == "english":
-                    z = str("2. Wisely 10 000[O]")
-                else:
-                    z = str("2. Mądrze 10 000[C]")
+
                 if lang == "1" or lang == "en" or lang == "english":
                     q = str("1. Better rod")
                     d = (f"{q} {cena_u}[O]")
+                    z = str("2. Wisely 10 000[O]")
                     l = str("3. Better bait")
                     L = (f"{l} {cena_l}[O]")
                     k = str("Sold")
                 else:
                     q = str("1. Szybsze łowienie")
                     d = (f"{q} {cena_u}[C]")
+                    z = str("2. Mądrze 10 000[C]")
                     l = str("3. Przynęta")
                     L = (f"{l} {cena_l}[C]")
                     k = str("Zakupiono")
+                if madrosc == 1:
+                    if lang == "1" or lang == "en" or lang == "english":
+                        z = str("You funny guy!")
+                    else:
+                        z = str("O ty śmieszku!")
 
                 if czas == 10:
                     d = k
@@ -360,10 +369,7 @@ Exit - aby wyjść")
                             print("Jesteś biedakiem!")
                     else:
                         portfel = portfel - 10000
-                    if lang == "1" or lang == "en" or lang == "english":
-                        z = "Oh, You funny Guy"
-                    else:
-                        z = "O ty śmieszku"
+                        madrosc = 1
                 elif sklep == "4":
                     if portfel < 10*mnożnik:
                         if lang == "1" or lang == "en" or lang == "english":
